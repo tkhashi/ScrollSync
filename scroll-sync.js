@@ -13,13 +13,13 @@ javascript:(() => {
     }
     if (ctrlcount === 0) {
       ctrlcount += 1;
-      console.log('to adjust-mode, press 1 more ctrl-key');
+      console.log('to adjust-mode, press ctrl-key once more');
     }
     else if (ctrlcount === 1) {
       ctrlcount += 1;
       oldX = window.scrollX;
       oldY = window.scrollY;
-      console.log('>> adjust-mode << : to submit, press 1 more ctrl-key');
+      console.log('>> adjust-mode << : to submit, press ctrl-key once more');
     }
     else {
       adjX = oldX - window.scrollX;
