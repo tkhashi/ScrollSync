@@ -6,7 +6,7 @@ javascript:(() => {
     return;
   }
   document.addEventListener('keydown', e => {
-    //console.log({keydown: 1, ctrlcount});
+    /* console.log({keydown: 1, ctrlcount}); */
     if (e.key !== 'Control') {
       ctrlcount = 0;
       return;
@@ -27,12 +27,12 @@ javascript:(() => {
       console.log('adjusted! : to adjust-mode, press ctrl-key twise');
       ctrlcount = 0;
     }
-    //console.log({end: 1, oldX, oldY, adjX, adjY, ctrlcount});
+    /* console.log({end: 1, oldX, oldY, adjX, adjY, ctrlcount}); */
   });
-  // open new window (not new tab)
+  /* open new window (not new tab) */
   const sidewindow = window.open(sideurl, '_blank', 'width');
   document.addEventListener('scroll', e => {
-    //console.log({scroll: 1, ctrlcount});
+    /* console.log({scroll: 1, ctrlcount}); */
     if (ctrlcount === 2) {
       return;
     }
