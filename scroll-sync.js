@@ -1,6 +1,6 @@
 javascript:(() => {
   let oldX = 0, oldY = 0, adjX = 0, adjY = 0, ctrlcount = 0;
-  const message = 'input URL to side-open (same origin) / to adjust, press ctrl-key twise and adjust and press ctrl-key.';
+  const message = 'input URL to side-open (same origin) / to adjust: press ctrl-key twise on original window, adjust, press ctrl-key.';
   const sideurl = window.prompt(message, '');
   if (!sideurl) {
     return;
