@@ -8,7 +8,9 @@ javascript:(() => {
   document.addEventListener('keydown', e => {
     /* console.log({keydown: 1, ctrlcount}); */
     if (e.key !== 'Control') {
-      ctrlcount = 0;
+      if (ctrlcount !== 2) {
+        ctrlcount = 0;
+      }
       return;
     }
     if (ctrlcount === 0) {
