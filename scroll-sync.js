@@ -9,7 +9,7 @@ javascript:(() => {
   const sidewindow = window.open(sideurl, '_blank', 'width');
 
   document.addEventListener('keydown', e => {
-    console.log('keydown', {ctrlcount});
+    /* console.log('keydown', {ctrlcount}); */
     if (e.key !== 'Control') {
       if (ctrlcount !== 2) {
         ctrlcount = 0;
@@ -30,10 +30,10 @@ javascript:(() => {
       console.log('adjusted! : to adjust-mode, press ctrl-key twise');
       ctrlcount = 0;
     }
-    console.log('end', {adjX, adjY, ctrlcount});
+    /* console.log('end', {adjX, adjY, ctrlcount}); */
   });
   document.addEventListener('scroll', e => {
-    console.log('scroll', {ctrlcount, scrX: window.scrollX, adjX, scrY: window.scrollY, adjY});
+    /* console.log('scroll', {ctrlcount, scrX: window.scrollX, adjX, scrY: window.scrollY, adjY}); */
     if (ctrlcount === 2) {
       return;
     }
