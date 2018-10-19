@@ -1,42 +1,57 @@
 javascript:(() => {
-  let adjX = 0, adjY = 0, ctrlcount = 0;
-  const message = 'input URL to side-open (same origin) / to adjust: press ctrl-key twise on original window, adjust, press ctrl-key once more.';
-  const sideurl = window.prompt(message, '');
-  if (!sideurl) {
+  let adjX = 0,
+    adjY = 0;
+  const NORMAL = 0,
+    CHECK = 1,
+    ADJUST = 2;
+  let mode = 0;
+
+  const promptMessage = [
+    'input URL to side-open (same origin) / ',
+    'to adjust: press ctrl-key twise on original window, adjust, press ctrl-key once more.'
+  ].join('');
+
+  const sideUrl = window.prompt(promptMessage, '');
+  if (!sideUrl) {
     return;
   }
-  /* open new window (not new tab) */
-  const sidewindow = window.open(sideurl, '_blank', 'width');
+
+  /** open new window (not new tab) */
+  const sideWindow = window.open(sideUrl, '_blank', 'width');
 
   document.addEventListener('keydown', e => {
-    /* console.log('keydown', {ctrlcount}); */
+    /* console.log('keydown', {mode}); */
     if (e.key !== 'Control') {
-      if (ctrlcount !== 2) {
-        ctrlcount = 0;
+      /** ignore if not Ctrl-key */
+      if (mode !== ADJUST) {
+        /** reset count if not adjust-mode */
+        mode = 0;
       }
       return;
     }
-    if (ctrlcount === 0) {
-      ctrlcount += 1;
-      console.log('to adjust-mode, press ctrl-key once more');
+
+    if (mode === NORMAL) {
+      console.log('press Ctrl-key once more for adjust-mode');
+      mode = CHECK;
     }
-    else if (ctrlcount === 1) {
-      ctrlcount += 1;
-      console.log('>> adjust-mode << : to submit, press ctrl-key once more');
+    else if (mode === CHECK) {
+      console.log('>> adjust-mode << : press Ctrl-key once more to submit');
+      mode = ADJUST;
     }
     else {
-      adjX = sidewindow.scrollX - window.scrollX;
-      adjY = sidewindow.scrollY - window.scrollY;
-      console.log('adjusted! : to adjust-mode, press ctrl-key twise');
-      ctrlcount = 0;
+      adjX = sideWindow.scrollX - window.scrollX;
+      adjY = sideWindow.scrollY - window.scrollY;
+      console.log('adjusted! : press Ctrl-key twise for adjust-mode');
+      mode = NORMAL;
     }
-    /* console.log('end', {adjX, adjY, ctrlcount}); */
+    /* console.log('end', {adjX, adjY, mode}); */
   });
   document.addEventListener('scroll', e => {
-    /* console.log('scroll', {ctrlcount, scrX: window.scrollX, adjX, scrY: window.scrollY, adjY}); */
-    if (ctrlcount === 2) {
+    /* console.log('scroll', {mode, scrX: window.scrollX, adjX, scrY: window.scrollY, adjY}); */
+    if (mode === ADJUST) {
+      /** dont scroll if adjust-mode */
       return;
     }
-    sidewindow.scrollTo(window.scrollX + adjX, window.scrollY + adjY);
+    sideWindow.scrollTo(window.scrollX + adjX, window.scrollY + adjY);
   });
 })()
