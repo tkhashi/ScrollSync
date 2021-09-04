@@ -1,5 +1,5 @@
 # ScrollSync
-Vivaldiのコマンドチェイン機能を活かしたjavascriptです。
+Vivaldiのコマンドチェイン機能を活かしたjavascriptです。  
 縦長のページを鳥瞰したり、一度に多くの情報を見たい場合に役立ちます。
 
 # Description
