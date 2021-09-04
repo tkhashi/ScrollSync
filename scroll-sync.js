@@ -29,7 +29,7 @@ javascript:(() => {
       console.log("adjY = " + adjY);
       console.log("window = " + window.scrollY);
       console.log("sidetab = " + sideTab.scrollY);
-      sideTab.scrollTo(window.scrollX + adjX, window.scrollY + adjY);
+      sideTab.scrollBy(adjX, adjY);
     });
     window.setTimeout(ScrollTile, 1000);
   }
