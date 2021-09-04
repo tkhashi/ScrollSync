@@ -7,6 +7,7 @@ Vivaldiのコマンドチェイン機能を活かしたjavascriptです。
 * タブスクロールが連動
 
 # Demo
+![CmdChain-SnakeTile](https://user-images.githubusercontent.com/66816003/132108289-d05602da-8a04-43d3-94c4-7e9fb6de5e3f.gif)
 
 # Usage
 当リポジトリのjsファイルをBookmarkLetに変換します。
