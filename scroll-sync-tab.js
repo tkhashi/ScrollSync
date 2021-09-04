@@ -10,7 +10,7 @@ javascript:(() => {
 	sideTab = window.open(sideUrl);
 
 	const _sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-	await _sleep(1000);
+	await _sleep(2000);
 
 	let startHeight = window.scrollY + windowHeight * 0.8 * (scrollSize);
 	sideTab.scrollTo(0, startHeight);
@@ -28,9 +28,5 @@ javascript:(() => {
 	if(TileCount> 1) {
 		let tab2;
 		Func(tab2, 2);
-	}
-	if(TileCount> 2) {
-		let tab3;
-		Func(tab3, 3);
 	}
 })();
